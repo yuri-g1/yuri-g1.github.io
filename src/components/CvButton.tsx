@@ -5,6 +5,9 @@ import { createPortal } from 'react-dom'
 import { useLang } from '../i18n/context'
 
 const files = { pt: '/cv/Yuri_Gabriel_Resume_PT.pdf', en: '/cv/Yuri_Gabriel_Resume_EN.pdf' }
+type GoatCounter = { count: (o: { path: string; title: string; event: boolean }) => void }
+const track = (o: Parameters<GoatCounter['count']>[0]) => (window as Window & { goatcounter?: GoatCounter }).goatcounter?.count(o)
+
 const thanks = { pt: 'Obrigado por baixar meu CV!', en: 'Thanks for downloading my CV!' }
 
 export function CvButton({ label, variant = 'solid' }: { label: string; variant?: 'solid' | 'outline' }) {
@@ -28,7 +31,10 @@ export function CvButton({ label, variant = 'solid' }: { label: string; variant?
       <a
         href={files[lang]}
         download
-        onClick={() => setToast(true)}
+        onClick={() => {
+          setToast(true)
+          track({ path: `cv-download-${lang}`, title: `CV ${lang.toUpperCase()}`, event: true })
+        }}
         className={`inline-flex items-center gap-2 whitespace-nowrap rounded-full px-6 text-sm font-medium transition-transform duration-300 active:scale-[0.98] ${base}`}
       >
         <DownloadSimpleIcon size={18} weight="bold" />
