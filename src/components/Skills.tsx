@@ -1,4 +1,30 @@
+import {
+  ArrowCounterClockwiseIcon,
+  ArrowsClockwiseIcon,
+  ChatCircleTextIcon,
+  CheckSquareIcon,
+  CodeIcon,
+  CompassIcon,
+  CubeIcon,
+  FileDocIcon,
+  GlobeIcon,
+  InfinityIcon,
+  KanbanIcon,
+  MagnifyingGlassIcon,
+  PlugsConnectedIcon,
+  PolygonIcon,
+  RobotIcon,
+  SealCheckIcon,
+  SparkleIcon,
+  SquaresFourIcon,
+  TestTubeIcon,
+  WebhooksLogoIcon,
+  WheelchairIcon,
+  XIcon,
+  type Icon,
+} from '@phosphor-icons/react'
 import { motion, useReducedMotion } from 'motion/react'
+import { useEffect, useRef, useState } from 'react'
 import { useLang } from '../i18n/context'
 import { Reveal } from './Reveal'
 
@@ -32,10 +58,68 @@ const icons: Record<string, string> = {
   'Chrome DevTools': 'googlechrome',
 }
 
+const brandIcons: Record<string, string> = {
+  ...icons,
+  MySQL: 'mysql',
+  Airtable: 'airtable',
+  Cloudflare: 'cloudflare',
+}
+
+const imageIcons: Record<string, string> = {
+  Playwright: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/playwright/playwright-original.svg',
+}
+
+const glyphs: Record<string, Icon> = {
+  'APIs REST': PlugsConnectedIcon,
+  'REST APIs': PlugsConnectedIcon,
+  'Micro Frontends': SquaresFourIcon,
+  'Pacote Office': FileDocIcon,
+  'Microsoft Office': FileDocIcon,
+  Webhooks: WebhooksLogoIcon,
+  RPA: RobotIcon,
+  HTTP: GlobeIcon,
+  SEO: MagnifyingGlassIcon,
+  AEO: ChatCircleTextIcon,
+  GEO: SparkleIcon,
+  'Controle de Qualidade': SealCheckIcon,
+  'Quality Control': SealCheckIcon,
+  'Testes Funcionais': CheckSquareIcon,
+  'Functional Testing': CheckSquareIcon,
+  'Testes Regressivos': ArrowCounterClockwiseIcon,
+  'Regression Testing': ArrowCounterClockwiseIcon,
+  'Testes Exploratórios': CompassIcon,
+  'Exploratory Testing': CompassIcon,
+  'Testes de API REST': TestTubeIcon,
+  'REST API Testing': TestTubeIcon,
+  WCAG: WheelchairIcon,
+  'Clean Code': CodeIcon,
+  SOLID: CubeIcon,
+  Scrum: ArrowsClockwiseIcon,
+  Kanban: KanbanIcon,
+  'CI/CD': InfinityIcon,
+  'Design Patterns': PolygonIcon,
+}
+
+function SkillIcon({ name }: { name: string }) {
+  const Glyph = glyphs[name]
+  if (Glyph) return <Glyph size={16} weight="duotone" className="shrink-0 text-fg/70" />
+  const src = imageIcons[name] ?? (brandIcons[name] && `https://cdn.simpleicons.org/${brandIcons[name]}`)
+  return src ? <img src={src} alt="" className="size-4 shrink-0" /> : null
+}
+
 export function Skills() {
   const { t, lang } = useLang()
   const reduce = useReducedMotion()
+  const [open, setOpen] = useState(false)
+  const dialog = useRef<HTMLDialogElement>(null)
   const items = t.skills.groups.flatMap((g) => g.items).filter((item) => icons[item])
+
+  useEffect(() => {
+    const el = dialog.current
+    if (!el) return
+    if (open && !el.open) el.showModal()
+    if (!open && el.open) el.close()
+  }, [open])
 
   return (
     <section id="habilidades" className="mx-auto w-full max-w-[1400px] scroll-mt-24 px-4 md:px-8">
@@ -64,15 +148,51 @@ export function Skills() {
       </ul>
 
       <p className="mt-10 text-center">
-        <a
-          href={lang === 'pt' ? '/cv/Yuri_Gabriel_Resume_PT.pdf' : '/cv/Yuri_Gabriel_Resume_EN.pdf'}
-          target="_blank"
-          rel="noreferrer"
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
           className="text-lg font-medium underline decoration-fg/30 underline-offset-4 transition-colors duration-300 hover:decoration-fg"
         >
           {lang === 'pt' ? 'e muito mais...' : 'and much more...'}
-        </a>
+        </button>
       </p>
+
+      <dialog
+        ref={dialog}
+        aria-labelledby="skills-dialog-title"
+        onClose={() => setOpen(false)}
+        onClick={(e) => e.target === e.currentTarget && setOpen(false)}
+        className="m-auto max-h-[90dvh] w-[min(76rem,calc(100%-2rem))] overflow-hidden rounded-3xl bg-[#fbfbfa] p-0 text-fg ring-1 ring-line backdrop:bg-fg/50 backdrop:backdrop-blur-sm open:animate-[modal-in_0.35s_cubic-bezier(0.16,1,0.3,1)] motion-reduce:animate-none"
+      >
+        <div className="flex items-center justify-between gap-4 border-b border-line px-6 py-5 md:px-8">
+          <h3 id="skills-dialog-title" className="text-2xl font-semibold tracking-[-0.04em] md:text-3xl">
+            {t.skills.title}
+          </h3>
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            aria-label={lang === 'pt' ? 'Fechar' : 'Close'}
+            className="grid size-10 shrink-0 place-items-center rounded-full ring-1 ring-line transition-colors duration-300 hover:bg-fg hover:text-bg"
+          >
+            <XIcon size={18} weight="bold" />
+          </button>
+        </div>
+        <div className="max-h-[calc(90dvh-5rem)] gap-x-10 overflow-y-auto px-6 py-6 md:columns-2 md:px-8 lg:columns-3">
+          {t.skills.groups.map((g) => (
+            <div key={g.name} className="mb-7 break-inside-avoid">
+              <h4 className="text-sm text-muted">{g.name}</h4>
+              <ul className="mt-3 flex flex-wrap gap-1.5">
+                {g.items.map((item) => (
+                  <li key={item} className="inline-flex items-center gap-2 rounded-full bg-bg px-2.5 py-1 text-[13px] font-medium ring-1 ring-line">
+                    <SkillIcon name={item} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </dialog>
     </section>
   )
 }

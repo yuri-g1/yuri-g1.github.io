@@ -8,7 +8,6 @@ import { Nav } from './components/Nav'
 import { Projects } from './components/Projects'
 import { Services } from './components/Services'
 import { Skills } from './components/Skills'
-import { Stack } from './components/Stack'
 import { LangProvider } from './i18n/LangProvider'
 import { Cursor } from './components/Cursor'
 
@@ -20,9 +19,8 @@ function App() {
       <main className="flex flex-col gap-24 pb-4 md:gap-32">
         <div>
           <Hero />
-          <Stack />
+          <About />
         </div>
-        <About />
         <Services />
         <Experience />
         <Skills />
