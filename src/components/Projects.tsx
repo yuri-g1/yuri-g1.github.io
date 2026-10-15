@@ -1,3 +1,4 @@
+import { ArrowUpRightIcon } from '@phosphor-icons/react'
 import { useLang } from '../i18n/context'
 import { GitHubActivity } from './GitHubActivity'
 import { Reveal } from './Reveal'
@@ -9,6 +10,7 @@ export function Projects() {
   const p = t.projects.items.find((item) => item.title.includes('SAP')) ?? t.projects.items[0]
   const cover = p.gallery[0] ?? SAP_COVER
   const site = t.projects.items.find((item) => item.gallery[0] === '/logistics-scheduling.png') ?? t.projects.items[0]
+  const snoozy = t.projects.items.find((item) => item.title === 'Snoozy')
 
   return (
     <section id="projetos" className="mx-auto w-full max-w-[1400px] scroll-mt-24 px-4 md:px-8">
@@ -52,6 +54,31 @@ export function Projects() {
             </div>
           </article>
         </Reveal>
+
+        {snoozy && (
+          <Reveal className="grid grid-cols-1 overflow-hidden rounded-3xl bg-[#fbfbfa] ring-1 ring-line md:grid-cols-12 lg:col-span-12">
+            <div className="flex flex-col justify-between gap-8 p-6 md:col-span-5 md:p-8">
+              <div>
+                {snoozy.status && <p className="w-fit rounded-full bg-accent px-2.5 py-0.5 text-sm font-medium">{snoozy.status}</p>}
+                <h3 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.04em] md:text-4xl">{snoozy.title}</h3>
+                <p className="mt-3 max-w-[56ch] leading-relaxed text-fg/70">{snoozy.description}</p>
+                <p className="mt-3 max-w-[56ch] leading-relaxed text-fg/70">{snoozy.details}</p>
+              </div>
+              <a
+                href={snoozy.href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex w-fit items-center gap-2 rounded-full bg-fg px-4 py-2 text-sm font-medium text-bg transition-transform active:scale-[0.98]"
+              >
+                {t.projects.siteLabel}
+                <ArrowUpRightIcon className="size-4" />
+              </a>
+            </div>
+            <div className="relative aspect-[1200/630] bg-surface md:col-span-7 md:aspect-auto md:min-h-full">
+              <img src={snoozy.gallery[0]} alt={`${t.projects.imageAlt} ${snoozy.title}`} loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
+            </div>
+          </Reveal>
+        )}
       </div>
     </section>
   )

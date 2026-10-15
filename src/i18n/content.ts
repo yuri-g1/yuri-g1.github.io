@@ -52,6 +52,7 @@ export type Content = {
     imageAlt: string;
     stackLabel: string;
     codeLabel: string;
+    siteLabel: string;
     items: Project[];
   };
   skills: { title: string; groups: { name: string; items: string[] }[] };
@@ -211,6 +212,7 @@ export const content: Record<Lang, Content> = {
       imageAlt: "Imagem do projeto",
       stackLabel: "Tecnologias",
       codeLabel: "Ver no GitHub",
+      siteLabel: "Ver o site",
       items: [
         {
           title: "yuri-g1.github.io",
@@ -259,6 +261,17 @@ export const content: Record<Lang, Content> = {
             "Sistema de agendamento para um cliente de logística, construído em uma plataforma low-code. Usuários de vários países agendam entregas de caminhões nos armazéns por um formulário personalizado, que coleta os dados essenciais logo de início e deixa todo o processo de entrada mais rápido.",
           gallery: ["/logistics-scheduling.png"],
           href: GITHUB,
+        },
+        {
+          title: "Snoozy",
+          description:
+            "Extensão para o Chrome que mostra quanto tempo você passa em cada site e te cutuca com uma preguiça sonolenta quando a pausa vira procrastinação.",
+          stack: [],
+          details:
+            "Conta o tempo por domínio, deixa você marcar sites como produtivos ou distrativos, gera relatórios diários e semanais e tem um modo foco que bloqueia distrações. Tudo fica no seu computador por padrão.",
+          gallery: ["/snoozy.png"],
+          href: "https://snoozy-lp.vercel.app/",
+          status: "Em desenvolvimento",
         },
         {
           title: "Validador SAP",
@@ -541,6 +554,7 @@ export const content: Record<Lang, Content> = {
       imageAlt: "Project image",
       stackLabel: "Tech stack",
       codeLabel: "View on GitHub",
+      siteLabel: "Visit site",
       items: [
         {
           title: "yuri-g1.github.io",
@@ -589,6 +603,17 @@ export const content: Record<Lang, Content> = {
             "A scheduling system for a logistics client, built on a low-code platform. International users book truck deliveries to warehouses through a customized form that collects the essential data upfront, streamlining and speeding up the whole intake process.",
           gallery: ["/logistics-scheduling.png"],
           href: GITHUB,
+        },
+        {
+          title: "Snoozy",
+          description:
+            "A Chrome extension that shows how much time you spend on each site and nudges you with a sleepy sloth when a break turns into procrastination.",
+          stack: [],
+          details:
+            "Tracks time per domain, lets you label sites as productive or distracting, builds daily and weekly reports and has a focus mode that blocks distractions. Everything stays on your computer by default.",
+          gallery: ["/snoozy.png"],
+          href: "https://snoozy-lp.vercel.app/",
+          status: "In progress",
         },
         {
           title: "SAP Validator",
