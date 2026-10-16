@@ -121,7 +121,7 @@ export const content: Record<Lang, Content> = {
       title: "Sobre mim",
       flagsLabel:
         "Bandeiras de Brasil, Romênia, Noruega, Holanda, Estados Unidos e Reino Unido",
-      text: "Sou desenvolvedor com atuação paralela em Quality Assurance. Há 3 anos entrego landing pages e produtos completos para empresas internacionais na Romênia, na Noruega, na Holanda e em outros países. Nesse período, também trabalhei bastante com desenvolvimento e manutenção de sistemas, integração de APIs e modelagem de bancos de dados.",
+      text: "Sou desenvolvedor com atuação paralela em Quality Assurance. Há 3 anos entrego, de forma remota, landing pages e produtos completos para empresas internacionais na Romênia, na Noruega, na Holanda e em outros países. Nesse período, também trabalhei bastante com desenvolvimento e manutenção de sistemas, integração de APIs e modelagem de bancos de dados.",
     },
     services: {
       title: "O que eu faço",
@@ -159,14 +159,14 @@ export const content: Record<Lang, Content> = {
     experience: {
       title: "Experiência",
       logoAlt: "Logo da",
-      sub: "Trabalhei com empresas na Romênia, na Noruega e em outros países, cuidando de produtos do design ao deploy. Construí interfaces para o setor financeiro e para educação, testei APIs e sistemas de ponta a ponta e mantive tudo rápido, acessível e responsivo em qualquer dispositivo.",
+      sub: "Trabalhei remotamente com empresas na Romênia, na Noruega e em outros países, cuidando de produtos do design ao deploy. Construí interfaces para o setor financeiro e para educação, testei APIs e sistemas de ponta a ponta e mantive tudo rápido, acessível e responsivo em qualquer dispositivo.",
       jobs: [
         {
           org: "Vasonim",
           logo: "/logos/vasonim.png",
           country: "ro",
           role: "Desenvolvedor Fullstack",
-          place: "Romênia",
+          place: "Romênia · Remoto",
           dates: "Jan 2023 - Ago 2026",
           bullets: [
             "Lidero a criação completa de landing pages e soluções tecnológicas para clientes, do design até a implementação.",
@@ -181,7 +181,7 @@ export const content: Record<Lang, Content> = {
           logo: "/logos/symetrisk.png",
           country: "no",
           role: "Desenvolvedor Front-end",
-          place: "Noruega",
+          place: "Noruega · Remoto",
           dates: "Fev 2025 - Jun 2026",
           bullets: [
             "Frontend principal feito por mim: três interfaces personalizadas para bancos, mutuários de empréstimo e avaliadores de crédito.",
@@ -196,7 +196,7 @@ export const content: Record<Lang, Content> = {
           logo: "/logos/langory.png?v=5",
           country: "no",
           role: "Quality Assurance & Desenvolvedor Front-end",
-          place: "Noruega",
+          place: "Noruega · Remoto",
           dates: "Out 2024 - Out 2025",
           bullets: [
             "Correção de bugs de responsividade em toda a plataforma e redesign da antiga landing page.",
@@ -463,7 +463,7 @@ export const content: Record<Lang, Content> = {
       title: "About me",
       flagsLabel:
         "Flags of Brazil, Romania, Norway, the Netherlands, the United States and the United Kingdom",
-      text: "I'm a developer with a parallel track in Quality Assurance. For 3 years I've shipped complete landing pages and products for international companies in Romania, Norway, the Netherlands and beyond. Along the way, I've also done a lot of system development and maintenance, API integration and database modeling.",
+      text: "I'm a developer with a parallel track in Quality Assurance. For 3 years I've remotely shipped complete landing pages and products for international companies in Romania, Norway, the Netherlands and beyond. Along the way, I've also done a lot of system development and maintenance, API integration and database modeling.",
     },
     services: {
       title: "What I do",
@@ -501,14 +501,14 @@ export const content: Record<Lang, Content> = {
     experience: {
       title: "Experience",
       logoAlt: "Logo of",
-      sub: "I have worked with companies in Romania, Norway and other countries, owning products from design to deploy. I built interfaces for finance and education, tested APIs and systems end to end, and kept everything fast, accessible and responsive on any device.",
+      sub: "I have worked remotely with companies in Romania, Norway and other countries, owning products from design to deploy. I built interfaces for finance and education, tested APIs and systems end to end, and kept everything fast, accessible and responsive on any device.",
       jobs: [
         {
           org: "Vasonim",
           logo: "/logos/vasonim.png",
           country: "ro",
           role: "Fullstack Developer",
-          place: "Romania",
+          place: "Romania · Remote",
           dates: "Jan 2023 - Aug 2026",
           bullets: [
             "Lead the end-to-end creation of landing pages and technology solutions for clients, from design through implementation.",
@@ -523,7 +523,7 @@ export const content: Record<Lang, Content> = {
           logo: "/logos/symetrisk.png",
           country: "no",
           role: "Front-end Developer",
-          place: "Norway",
+          place: "Norway · Remote",
           dates: "Feb 2025 - Jun 2026",
           bullets: [
             "Built the core front end: three tailored interfaces for banks, loan borrowers and credit scorers.",
@@ -538,7 +538,7 @@ export const content: Record<Lang, Content> = {
           logo: "/logos/langory.png?v=5",
           country: "no",
           role: "Quality Assurance & Front-end Developer",
-          place: "Norway",
+          place: "Norway · Remote",
           dates: "Oct 2024 - Oct 2025",
           bullets: [
             "Fixed UI responsiveness bugs across the platform and redesigned the old landing page.",

@@ -92,7 +92,10 @@ export function Experience() {
                                 className="h-4 w-6 rounded-[3px] object-cover outline outline-1 -outline-offset-1 outline-fg/10"
                               />
                             </span>
-                            <span className="font-medium">{job.role}</span>
+                            <span className="font-medium">
+                              {job.role}
+                              <span className="text-muted"> · {job.place}</span>
+                            </span>
                           </div>
                         </div>
                         <div className="flex shrink-0 items-center gap-4">
