@@ -167,7 +167,7 @@ export const content: Record<Lang, Content> = {
           country: "ro",
           role: "Desenvolvedor Fullstack",
           place: "Romênia · Remoto",
-          dates: "Jan 2023 - Set 2026",
+          dates: "Jan 2023 - Atual",
           bullets: [
             "Lidero a criação completa de landing pages e soluções tecnológicas para clientes, do design até a implementação.",
             "Designs de UI/UX personalizados e arquiteturas de front-end escaláveis em Next.js, React e TypeScript.",
@@ -509,7 +509,7 @@ export const content: Record<Lang, Content> = {
           country: "ro",
           role: "Fullstack Developer",
           place: "Romania · Remote",
-          dates: "Jan 2023 - Sep 2026",
+          dates: "Jan 2023 - Present",
           bullets: [
             "Lead the end-to-end creation of landing pages and technology solutions for clients, from design through implementation.",
             "Custom, user-focused UI/UX and scalable front-end architectures in Next.js, React and TypeScript.",
